@@ -51,21 +51,20 @@ count = {
 
 # iterate through each sequence for the same position to find most consensus string
 
-output = ""
+consensus = ""
 
-for position in range(length-1):
+for position in range(length):
 	tracker = {}
 	for nuc in count:
-		# print(count[nuc][position])
 		tracker[count[nuc][position]] = nuc
 		# print(tracker)
-		high = max(tracker.keys())
-		# print(high)
-		# print(tracker[high])
-		output += tracker[high]
+	high = max(tracker.keys())
+	# print(high)
+	# print(tracker[high])
+	consensus += tracker[high]
 
 
-print(output)
+print(consensus)
 print("A: ", " ".join(str(x) for x in A))
 print("C: ", " ".join(str(x) for x in C))
 print("G: ", " ".join(str(x) for x in G))
