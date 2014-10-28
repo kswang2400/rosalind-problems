@@ -1,58 +1,33 @@
 
-from math import factorial
-
-# 1		12		123		1234		
-# 						1243		
-# 						1423		
-# 				132		1324		
-# 						1342		
-# 						1432		
-# 		21		213		2134		
-# 						2143		
-# 						2413		
-# 				231		2314		
-# 						2341		
-# 						2431		
-# 				312		3124		
-# 						3142		
-# 						3412		
-# 				321		3214		
-# 						3241		
-# 						3421		
-# 						4123		
-# 						4132		
-# 						4213		
-# 						4231		
-# 						4312		
-# 						4321		
-
-# 	build(1) = [1]
-# 	build(2) = [[1, 2], [2, 1]]
-# 	build(3) = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-
 n = int(input("N: "))
+n = list(range(1, n+1))
 
-def build(n):
+answer = []
 
-	lst = [0] * n
-	skeleton = [lst] * factorial(n)
-	length = len(skeleton)
+def permute(remainder, output = []):
 
-	for i in range(length):
-		j = int(i/2)
-		print(i, j)
-		skeleton[i][j] = n
+	print('remainder', remainder, 'output', output)
 
-	return skeleton
+	if len(remainder) == 1:
+		print('remainder', remainder[0])
+		output.append(remainder[0])
+		answer.append(output)
+		print('answer', answer)
 
-print(factorial(n))
-print(build(n))
+	temp = list(remainder)
 
-########
+	for x in remainder:
+		output = []
+		print('x', x)
+		output.append(x)
+		temp.remove(x)
+		print('temp', temp)
+		print('output', output)
+		permute(temp, output)
+		temp = list(remainder)
+		print("""
+			""")
+	return answer
 
-# lst = list(range(1, n)) 		# [1. 2, 3 .. n]
-
-
-
-
-
+permute(n)
+print('answer', answer)
