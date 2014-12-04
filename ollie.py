@@ -1,38 +1,4 @@
 
-##### doesn't work
-
-n = int(input("N: "))
-n = list(range(1, n+1))			# [1, 2, 3 .. n]
-permutations = []
-
-def permute(remainder, output = []):
-	if len(remainder) == 0:
-		permutations.append(output)
-		output = []
-		print('permutations', permutations)
-
-	temp = list(remainder)
-	for x in remainder:
-		print('x', x)
-		output.append(x)
-		temp.remove(x)
-		# print('temp', temp)
-		# print('output', output)
-		permute(temp, output)
-		temp = list(remainder)
-		output = []
-		print("""
-			""")
-
-	return permutations
-
-permute(n)
-print('permutations', permutations)
-
-
-##### Ollie
-
-
 n = int(input("N: "))
 n = list(range(1, n+1))         
 permutations = []
