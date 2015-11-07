@@ -11,7 +11,9 @@
 
 # Return: The transcribed RNA string of t.
 
-dataset = input("What is the genomic sequence? ")
+def main():
+	dataset = input("What is the genomic sequence? ")
+	changeRNA(dataset)
 
 def changeRNA(DNAsequence):
 	sequence = list(str(DNAsequence.upper()))
@@ -23,12 +25,8 @@ def changeRNA(DNAsequence):
 	print(answer)
 	return None
 
-changeRNA(dataset)
-
-
-
-
 # WAY BETTER answer
 
-answer = input("DNA? ").replace('T','U')
-print(answer)
+def dna2rna(dna):
+	rna = dna.replace('T','U')
+	return rna
